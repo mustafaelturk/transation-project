@@ -2,7 +2,8 @@ package com.example.transactionproject.service;
 
 import com.example.transactionproject.dto.TransactionResponse;
 import com.example.transactionproject.mapper.TransactionMapper;
-import com.example.transactionproject.model.Transaction;
+import com.example.transactionproject.entity.Transaction;
+import com.example.transactionproject.repository.TransactionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
 public class TransactionService {
 
     private final TransactionMapper transactionMapper;
+    private final TransactionRepository transactionRepository;
 
     List<Transaction> transactions = List.of(
             Transaction.builder()
@@ -52,9 +54,11 @@ public class TransactionService {
 
     public List<TransactionResponse> findAllByAccountNumber(int accountNumber){
 
-        List<Transaction> transactionList = transactions.stream()
-                .filter(transaction -> transaction.getAccountNumber() == accountNumber)
-                .collect(Collectors.toList());
+//        List<Transaction> transactionList = transactions.stream()
+//                .filter(transaction -> transaction.getAccountNumber() == accountNumber)
+//                .collect(Collectors.toList());
+
+        List<Transaction> transactionList = transactionRepository.findAllByAccountNumber(accountNumber);
 
         List<TransactionResponse> transactionResponseList = transactionMapper
                 .toTransactionResponseList(transactionList);

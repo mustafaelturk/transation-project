@@ -1,7 +1,7 @@
 package com.example.transactionproject.mapper;
 
 import com.example.transactionproject.dto.TransactionResponse;
-import com.example.transactionproject.model.Transaction;
+import com.example.transactionproject.entity.Transaction;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
