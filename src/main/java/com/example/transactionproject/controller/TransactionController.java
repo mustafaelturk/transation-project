@@ -4,6 +4,7 @@ import com.example.transactionproject.dto.TransactionResponse;
 import com.example.transactionproject.service.TransactionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,8 +17,8 @@ public class TransactionController {
 
     private final TransactionService transactionService;
 
-    @GetMapping
-    public List<TransactionResponse> findAllByAccountNumber (int accountNumber) {
+    @GetMapping("/{accountNumber}")
+    public List<TransactionResponse> findAllByAccountNumber (@PathVariable int accountNumber) {
         return transactionService.findAllByAccountNumber(accountNumber);
     }
 }
