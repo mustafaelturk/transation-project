@@ -24,7 +24,6 @@ public class Transaction {
     private String type;
     private Date date;
     private int accountNumber;
-    //TODO it should be an ENUM
     private String currency;
     private double amount;
     private String merchantName;

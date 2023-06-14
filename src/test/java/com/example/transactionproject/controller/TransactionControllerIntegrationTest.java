@@ -29,7 +29,7 @@ class TransactionControllerIntegrationTest {
     public void shouldFindAllByAccountNumber () throws Exception {
         when(transactionService.findAllByAccountNumber(54321))
                 .thenReturn(getTransactions());
-        mockMvc.perform(get("/transactions/54321"))
+        mockMvc.perform(get("/api/v1/transactions/54321"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }

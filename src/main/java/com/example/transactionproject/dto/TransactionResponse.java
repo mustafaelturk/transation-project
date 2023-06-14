@@ -10,6 +10,7 @@ import java.util.Date;
 @Data @NoArgsConstructor @AllArgsConstructor @Builder
 public class TransactionResponse {
 
+    private Long id;
     private String type;
     private Date date;
     private int accountNumber;
